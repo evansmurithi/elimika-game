@@ -89,19 +89,21 @@ knowledge.prototype = {
         this.backBtn.scale.set(0.5);
         this.backBtn.input.useHandCursor = true;
 
-        this.questionsBtn = game.add.button(game.width / 2, game.height - 200, 'button', function () {
-            game.state.start(questionsState);
-        }, this);
-        this.questionsBtn.anchor.set(0.5);
-        this.questionsBtn.scale.setTo(1, 0.5);
+        if (questionsState) {
+            this.questionsBtn = game.add.button(game.width / 2, game.height - 200, 'button', function () {
+                game.state.start(questionsState);
+            }, this);
+            this.questionsBtn.anchor.set(0.5);
+            this.questionsBtn.scale.setTo(1, 0.5);
 
-        this.questionsText = game.add.text(game.width / 2, game.height - 200, 'QUESTIONS', {
-            font: '48px Comic Sans MS',
-            fill: '#fff',
-            stroke: '#fff',
-            strokeThickness: 3
-        });
-        this.questionsText.anchor.set(0.5);
+            this.questionsText = game.add.text(game.width / 2, game.height - 200, 'QUESTIONS', {
+                font: '48px Comic Sans MS',
+                fill: '#fff',
+                stroke: '#fff',
+                strokeThickness: 3
+            });
+            this.questionsText.anchor.set(0.5);
+        }
     },
 
     getKnowledge: function (index) {
@@ -110,8 +112,8 @@ knowledge.prototype = {
             this.nextSection(this.currentSection + 1);
         }
         if (index >= 0 && index < kLength) {
-            if (this.kImage) {
-                this.kImage.destroy();
+            if (game.global.kqImage) {
+                game.global.kqImage.destroy();
             }
             this.index = index;
             var img = this.kObj[index].image;
@@ -135,15 +137,15 @@ knowledge.prototype = {
     },
 
     loadStart: function () {
-        console.log('Loading...');
+
     },
 
     fileComplete: function (progress, cacheKey, success, totalLoaded, totalFiles) {
-        this.kImage = game.add.image(230, 320, cacheKey);
-        this.kImage.anchor.set(0.5);
+        game.global.kqImage = game.add.image(230, 320, cacheKey);
+        game.global.kqImage.anchor.set(0.5);
     },
 
     loadComplete: function () {
-        console.log('Load Complete');
+
     }
 };

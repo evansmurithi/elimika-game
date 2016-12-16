@@ -38,6 +38,24 @@ loadState.prototype = {
         this.load.image('mascot', 'assets/gui/tooth.png');
         this.load.nineSlice('input', 'assets/gui/inputField.png', 15);
 
+        // jolly jumper
+        this.load.image('jjBg','assets/gui/jj/bg.png');
+        this.load.image('jjCactus','assets/gui/jj/cactus.png');
+        this.load.image('jjPlatform','assets/gui/jj/platform.png');
+        this.load.image('jjMenuBg', 'assets/gui/jj/menuBg.png');
+        this.load.image('jjHelp', 'assets/gui/jj/help.png');
+        this.load.image('jjPlay', 'assets/gui/jj/play.png');
+        this.load.image('jjCoconut', 'assets/gui/jj/coconut.png');
+        this.load.spritesheet('jjSoundSprite', 'assets/gui/jj/sound.png', 70, 60);
+        this.load.spritesheet('jjMonkey','assets/gui/jj/monkey.png', 63, 78);
+        this.load.image('jjFruit0','assets/gui/jj/banana.png');
+        this.load.image('jjFruit1','assets/gui/jj/grape.png');
+        this.load.image('jjFruit2','assets/gui/jj/pineapple.png');
+        this.load.image('jjFruit3','assets/gui/jj/watermelon.png');
+        this.load.image('jjFruit4','assets/gui/jj/cherry.png');
+        this.load.image('jjLife','assets/gui/jj/life.png');
+        this.load.spritesheet('jjGems', 'assets/gui/jj/gems.png', 45, 42);
+
         // buttons
         this.load.image('button', 'assets/gui/button.png');
         this.load.image('nextBtn', 'assets/gui/nextBtn.png');
@@ -47,6 +65,11 @@ loadState.prototype = {
         this.load.audio('menuBgSound', ['sound/menuBg.mp3'], true);
         this.load.audio('kidsCheering', ['sound/kidsCheering.mp3'], true);
         this.load.audio('sadTrombone', ['sound/sadTrombone.mp3'], true);
+        this.load.audio('jumpSound', ['sound/jump.mp3'], true);
+        this.load.audio('gemSound', ['sound/gem.mp3'], true);
+        this.load.audio('deadSound', ['sound/dead.mp3'], true);
+        this.load.audio('cocoSound', ['sound/dap.mp3'], true);
+        this.load.audio('fruitGulp', ['sound/fruitGulp.mp3'], true);
     },
 
     create: function () {

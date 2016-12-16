@@ -12,6 +12,7 @@ questions.prototype = {
 
         this.background = new background(game);
         this.modal = new modal(game);
+        this.util = new util(game);
 
         this.background.create();
 
@@ -35,7 +36,7 @@ questions.prototype = {
         }, this);
         this.menuBg.input.useHandCursor = true;
         this.menuBg.events.onInputDown.add(function (item) {
-            this.modal.create();
+            this.modal.showModal('promptMenuModal');
             // game.state.start('CategoryMenu');
         }, this);
 
@@ -86,8 +87,8 @@ questions.prototype = {
 
     getQuestion: function (index) {
         if (index >= 0 && index < this.questions.length) {
-            if (this.kImage) {
-                this.kImage.destroy();
+            if (game.global.kqImage) {
+                game.global.kqImage.destroy();
             }
             this.index = index;
             var img = this.questions[index].question_image;
@@ -98,6 +99,11 @@ questions.prototype = {
             }
             this.questionText.text = this.questions[index].question;
             this.setChoices(this.questions[index].question_choices);
+        }
+
+        if (index === this.questions.length) {
+            // TODO: Play Jolly Jumper
+            game.state.start('CategoryMenu');
         }
     },
 
@@ -185,15 +191,32 @@ questions.prototype = {
     },
 
     checkAnswer: function (index) {
-        var is_right = this.questions[this.index].question_choices[index].is_right;
+        var question = this.questions[this.index];
+        var choice = question.question_choices[index];
+        var learner_id = this.util.getCookie('learner_id');
+        var is_right = choice.is_right;
+
+        // var httpReq = new XMLHttpRequest();
+        // var params = 'question=' + question.id + '&choice=' + choice.id +
+        //     '&learner=' + learner_id;
+        //
+        // httpReq.onreadystatechange = function () {
+        //     if (httpReq.readyState === XMLHttpRequest.DONE) {
+        //         if (httpReq.status === 201) {
+        //             var response = JSON.parse(httpReq.response);
+        //             console.log(response);
+        //         }
+        //     }
+        // };
+        // httpReq.open('POST', 'http://127.0.0.1:8000/questions/answers/');
+        // httpReq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        // httpReq.send(params);
 
         if (is_right) {
-            console.log('Correct');
             var cheers = game.add.audio('kidsCheering');
             cheers.play();
             this.score.score += 1;
         } else {
-            console.log('Wrong');
             var sad = game.add.audio('sadTrombone');
             sad.play();
         }

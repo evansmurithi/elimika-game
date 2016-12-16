@@ -3,13 +3,19 @@
     <head>
         <meta charset="utf-8">
         <title>Elimika</title>
+
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+
         <!-- libs -->
         <script type="text/javascript" src="lib/phaser.js"></script>
         <script type="text/javascript" src="lib/phaser-nineslice.js"></script>
         <script type="text/javascript" src="lib/phaser-input.js"></script>
         <script type="text/javascript" src="lib/modal.js"></script>
+        <script type="text/javascript" src="lib/phaser-debug.js"></script>
+        <script type="text/javascript" src="lib/ScreenShake.js"></script>
 
         <!-- util -->
+        <script type="text/javascript" src="script/util/util.js"></script>
         <script type="text/javascript" src="script/util/background.js"></script>
         <script type="text/javascript" src="script/util/effect.js"></script>
         <script type="text/javascript" src="script/util/modal.js"></script>
@@ -23,6 +29,23 @@
         <script type="text/javascript" src="script/category_menu.js"></script>
         <script type="text/javascript" src="script/knowledge_states.js"></script>
         <script type="text/javascript" src="script/question_states.js"></script>
+        <script type="text/javascript" src="script/ask_question.js"></script>
+        <script type="text/javascript" src="script/learner_performance.js"></script>
+
+        <!-- jolly jumper -->
+        <!-- ui -->
+        <script type="text/javascript" src="script/jolly_jumper/ui/jj_menu_buttons.js"></script>
+        <script type="text/javascript" src="script/jolly_jumper/ui/jj_score.js"></script>
+
+        <!-- objects -->
+        <script type="text/javascript" src="script/jolly_jumper/objects/jj_background.js"></script>
+        <script type="text/javascript" src="script/jolly_jumper/objects/jj_platform.js"></script>
+        <script type="text/javascript" src="script/jolly_jumper/objects/jj_player.js"></script>
+        <script type="text/javascript" src="script/jolly_jumper/objects/jj_fruits.js"></script>
+
+        <!-- scripts -->
+        <script type="text/javascript" src="script/jolly_jumper/jj_menu.js"></script>
+        <script type="text/javascript" src="script/jolly_jumper/jj_play.js"></script>
 
         <style type="text/css">
             @font-face {
@@ -32,6 +55,7 @@
 
             body {
                 margin: 0;
+                background-color: #E3E3E3;
                 font-family: 'dk_cool_crayon', sans-serif;
             }
         </style>

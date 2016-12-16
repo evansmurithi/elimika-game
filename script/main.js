@@ -20,15 +20,29 @@ window.onload = function () {
     game.state.add('TeethQuestions', teethQuestionsState);
     game.state.add('TypesQuestions', typesQuestionsState);
     game.state.add('SetsQuestions', setsQuestionsState);
+    game.state.add('AskQuestion', askQuestionState);
+    game.state.add('LearnerPerformance', learnerPerformanceState);
+
+    // JollyJumper states
+    game.state.add('JJMenu', jjMenuState);
+    game.state.add('JJPlay', jjPlayState);
 
     // game global variables
     game.global = {
         menuBgSound: null,
+        gemSound: null,
+        jumpSound: null,
+        deadSound: null,
+        cocoSound: null,
         muteSound: false,
         playSound: true,
         menuBgPic: null,
+        pltYMin: null,
+        jjScore: 0,
+        collideFlag: false,
         knowledge: {},
         questions: {},
+        kqImage: null,
         categoryScore: {
             teeth: {
                 score: 0,
