@@ -6,10 +6,8 @@ loadState.prototype = {
 
     init: function () {
         this.knowledgeUrl = 'http://127.0.0.1:8000/knowledge/category_knowledge/';
-        this.questionsUrl = 'http://127.0.0.1:8000/questions/category_questions/';
 
         this.fetchKnowledge();
-        this.fetchQuestions();
     },
 
     preload: function () {
@@ -36,6 +34,7 @@ loadState.prototype = {
         this.load.image('elimikaLogo', 'assets/gui/elimika.png');
         this.load.image('chalkboard', 'assets/gui/chalkboard.png');
         this.load.image('mascot', 'assets/gui/tooth.png');
+        this.load.image('bush', 'assets/gui/bush.png');
         this.load.nineSlice('input', 'assets/gui/inputField.png', 15);
 
         // jolly jumper
@@ -54,6 +53,8 @@ loadState.prototype = {
         this.load.image('jjFruit3','assets/gui/jj/watermelon.png');
         this.load.image('jjFruit4','assets/gui/jj/cherry.png');
         this.load.image('jjLife','assets/gui/jj/life.png');
+        this.load.image('jjBack','assets/gui/jj/backward.png');
+        this.load.image('jjHTP','assets/gui/jj/howToPlay.png');
         this.load.spritesheet('jjGems', 'assets/gui/jj/gems.png', 45, 42);
 
         // buttons
@@ -91,14 +92,6 @@ loadState.prototype = {
         kHttpRequest.send();
     },
 
-    fetchQuestions: function () {
-        qHttpRequest = new XMLHttpRequest();
-
-        qHttpRequest.onreadystatechange = this.getQuestions;
-        qHttpRequest.open('GET', this.questionsUrl);
-        qHttpRequest.send();
-    },
-
     getKnowledge: function () {
         if (kHttpRequest.readyState === XMLHttpRequest.DONE) {
             if (kHttpRequest.status === 200) {
@@ -106,18 +99,6 @@ loadState.prototype = {
                 for (var i = 0; i < response.length; i++) {
                     var category = response[i].category;
                     game.global.knowledge[category] = response[i].knowledge;
-                }
-            }
-        }
-    },
-
-    getQuestions: function () {
-        if (qHttpRequest.readyState === XMLHttpRequest.DONE) {
-            if (qHttpRequest.status === 200) {
-                var response = JSON.parse(qHttpRequest.response);
-                for (var i = 0; i < response.length; i++) {
-                    var category = response[i].category;
-                    game.global.questions[category] = response[i].questions;
                 }
             }
         }

@@ -6,23 +6,24 @@ jjMenuState.prototype = {
 
     create: function () {
         this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-        this.game.scale.setGameSize(350, 550);
-        this.scale.setMinMax(260, 480, 330, 550);
+        var width = window.innerHeight * 40 / 71;
+        this.game.scale.setGameSize(width, window.innerHeight);
+        this.scale.setMinMax(260, 480, width, window.innerHeight);
         this.game.scale.updateLayout(true);
         this.game.scale.refresh();
 
         this.titleBg = game.add.sprite(game.world.centerX, game.world.centerY, 'jjMenuBg');
         this.titleBg.anchor.set(0.5);
-        this.titleBg.scale.set(0.6);
+        this.titleBg.scale.set(1);
 
         this.game.global.menuBgSound.play();
 
         this.buttons = new jjMenuButtons(game);
         this.buttons.create();
 
-        this.menuTitle = game.add.sprite(game.world.centerX, game.world.height - 450, 'elimikaLogo');
+        this.menuTitle = game.add.sprite(game.world.centerX, 150, 'elimikaLogo');
         this.menuTitle.anchor.set(0.5);
-        this.menuTitle.scale.set(0.5);
+        this.menuTitle.scale.set(0.8);
 
         this.tweenButton(this.buttons.playBtn);
     },

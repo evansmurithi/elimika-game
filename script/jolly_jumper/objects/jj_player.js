@@ -9,6 +9,7 @@ jjPlayer.prototype = {
             game.world.centerX, game.world.centerY, 'jjMonkey', 1
         );
         this.player.anchor.set(0.5);
+        this.player.scale.set(1.2);
         game.physics.arcade.enable(this.player);
         this.player.body.setSize(25, 55, 0, 0);
         this.player.body.collideWorldBounds = true;
@@ -38,10 +39,10 @@ jjPlayer.prototype = {
             this.player.body.velocity.y = -500;
         } else if (this.cursor.left.isDown) {
             this.player.frame = 4;
-            this.player.body.velocity.x = -150;
+            this.player.body.velocity.x = -250;
         } else if (this.cursor.right.isDown) {
             this.player.frame = 3;
-            this.player.body.velocity.x = 150;
+            this.player.body.velocity.x = 250;
         } else {
             this.player.frame = 1;
             this.player.body.velocity.x = 0;

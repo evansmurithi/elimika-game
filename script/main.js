@@ -26,6 +26,7 @@ window.onload = function () {
     // JollyJumper states
     game.state.add('JJMenu', jjMenuState);
     game.state.add('JJPlay', jjPlayState);
+    game.state.add('JJHelp', jjHelpState);
 
     // game global variables
     game.global = {

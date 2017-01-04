@@ -46,7 +46,7 @@ jjFruits.prototype = {
 
         this.fruitSound = game.add.audio('fruitGulp', 1, false);
 
-        this.fruitsGroup.callAll('body.setSize','body',25,25,0,2);
+        this.fruitsGroup.callAll('body.setSize', 'body', 25, 25, 0, 2);
 
         Phaser.ArrayUtils.shuffle(this.fruitsGroup);
         this.fruitsGroup.updateZ();
@@ -90,7 +90,7 @@ jjFruits.prototype = {
         var fruit;
         for (var i = 1; i <= 15; i++) {
             fruit = this.fruitsGroup.getRandom();
-            var x = game.rnd.integerInRange(20, 310);
+            var x = game.rnd.integerInRange(20, 410);
             var y = game.rnd.integerInRange(20, 400);
             fruit.reset(x + 10, y + 30);
         }
@@ -107,7 +107,7 @@ jjFruits.prototype = {
         this.min = game.camera.y;
         this.max = game.camera.y + game.height;
         this.y = game.rnd.integerInRange(this.min, this.min - 300);
-        this.x = game.rnd.integerInRange(20, 320);
+        this.x = game.rnd.integerInRange(20, 420);
         Phaser.ArrayUtils.shuffle(this.fruitsGroup);
         this.fruitsGroup.updateZ();
 
@@ -124,7 +124,7 @@ jjFruits.prototype = {
             var gem = this.gemsGroup.getFirstDead();
             if (gem) {
                 var y = game.world.bounds.y + game.rnd.integerInRange(1500, 1800);
-                this.x = game.rnd.integerInRange(20, 330);
+                this.x = game.rnd.integerInRange(20, 430);
                 gem.reset(this.x + 3, y);
             }
         }
@@ -142,7 +142,7 @@ jjFruits.prototype = {
             var coco = this.coconutGroup.getFirstDead();
             if (coco) {
                 var y = game.world.bounds.y + game.rnd.integerInRange(1500, 1800);
-                this.x = game.rnd.integerInRange(30, 320);
+                this.x = game.rnd.integerInRange(30, 420);
                 coco.reset(this.x, y);
             }
         }
@@ -166,7 +166,7 @@ jjFruits.prototype = {
         var coco = this.coconutGroup.getFirstDead();
         if (coco) {
             var y = game.world.bounds.y + game.rnd.integerInRange(1500, 1800);
-            this.x = game.rnd.integerInRange(30, 310);
+            this.x = game.rnd.integerInRange(30, 410);
             coco.reset(this.x, y);
             this.flag = this.flag + 1;
             console.log('level 1');
@@ -179,7 +179,7 @@ jjFruits.prototype = {
             var coco = this.coconutGroup.getFirstDead();
             if (coco) {
                 var y = game.world.bounds.y + game.rnd.integerInRange(1500, 1800);
-                this.x = game.rnd.integerInRange(20, 330);
+                this.x = game.rnd.integerInRange(20, 430);
                 coco.reset(this.x, y);
                 this.flag = this.flag + 1;
                 console.log('level 2 flag ' + this.flag);
@@ -193,7 +193,7 @@ jjFruits.prototype = {
             var coco = this.coconutGroup.getFirstDead();
             if (coco) {
                 var y = game.world.bounds.y + game.rnd.integerInRange(1500, 1800);
-                this.x = game.rnd.integerInRange(20, 330);
+                this.x = game.rnd.integerInRange(20, 430);
                 coco.reset(this.x, y);
                 this.flag = this.flag + 1;
                 console.log('level 3');

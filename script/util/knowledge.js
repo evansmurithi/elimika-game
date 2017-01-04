@@ -103,7 +103,31 @@ knowledge.prototype = {
                 strokeThickness: 3
             });
             this.questionsText.anchor.set(0.5);
+        } else {
+            this.backBtn = game.add.button(game.width / 2, game.height - 200, 'button', function () {
+                game.state.start('AskQuestion');
+            }, this);
+            this.backBtn.anchor.set(0.5);
+            this.backBtn.scale.setTo(1, 0.5);
+
+            this.backText = game.add.text(game.width / 2, game.height - 200, 'GO BACK', {
+                font: '48px Comic Sans MS',
+                fill: '#fff',
+                stroke: '#fff',
+                strokeThickness: 3
+            });
+            this.backText.anchor.set(0.5);
         }
+
+        var leftKey = game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
+        leftKey.onDown.add(function () {
+            this.getKnowledge(this.index - 1);
+        }, this);
+
+        var rightKey = game.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
+        rightKey.onDown.add(function () {
+            this.getKnowledge(this.index + 1);
+        }, this);
     },
 
     getKnowledge: function (index) {

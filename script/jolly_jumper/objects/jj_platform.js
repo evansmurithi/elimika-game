@@ -6,7 +6,7 @@ jjPlatform.prototype = {
 
     create: function () {
         this.pltGroup = game.add.physicsGroup(Phaser.Physics.ARCADE);
-        this.pltGroup.createMultiple(6, 'jjPlatform', null, false);
+        this.pltGroup.createMultiple(8, 'jjPlatform', null, false);
 
         this.pltGroup.setAll('body.immovable', true);
         this.pltGroup.setAll('body.checkCollision.down', false);
@@ -18,7 +18,7 @@ jjPlatform.prototype = {
     initialPlatforms: function () {
         var platform;
 
-        for (var i = 1; i <= 5; i++) {
+        for (var i = 1; i <= 7; i++) {
             platform = this.pltGroup.getFirstDead();
             platform.body.immovable = true;
             platform.anchor.set(0.5);
@@ -39,7 +39,7 @@ jjPlatform.prototype = {
         var platform = this.pltGroup.getFirstDead();
         platform.body.immovable = true;
         platform.anchor.set(0.5);
-        var x = game.rnd.integerInRange(50, 300);
+        var x = game.rnd.integerInRange(50, 450);
         var y = game.global.pltYMin - (game.rnd.integerInRange(100, 180));
         platform.reset(x, y);
         return;

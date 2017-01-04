@@ -24,7 +24,7 @@ jjMenuButtons.prototype = {
         this.soundBtn.input.useHandCursor = true;
 
         this.helpBtn = game.add.button(
-            300, game.height - 60, 'jjHelp', this.handleHelp, this
+            game.width - 50, game.height - 60, 'jjHelp', this.handleHelp, this
         );
         this.helpBtn.anchor.set(0.5);
         this.helpBtn.input.useHandCursor = true;

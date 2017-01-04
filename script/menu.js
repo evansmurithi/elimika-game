@@ -9,8 +9,7 @@ menuState.prototype = {
     preload: function () {
         this.util = new util(game);
         if (this.util.getCookie('learner_id') && this.util.getCookie('learner_username')) {
-            // game.state.start('CategoryMenu');
-            game.state.start('JJMenu');
+            game.state.start('CategoryMenu');
         }
     },
 
@@ -97,8 +96,6 @@ menuState.prototype = {
                 userUsername.destroy();
                 userAge.destroy();
                 userGender.destroy();
-
-                game.state.start('CategoryMenu');
             }
         }, this);
         this.startBtn.anchor.set(0.5);
@@ -124,12 +121,11 @@ menuState.prototype = {
             if (httpReq.readyState === XMLHttpRequest.DONE) {
                 if (httpReq.status === 201) {
                     var response = JSON.parse(httpReq.response);
-                    console.log(response);
                     document.cookie = 'learner_id=' + response.id +
                         '; expires=Thu, 01 Jan 1970 00:00:00 GMT';
                     document.cookie = 'learner_username=' + response.username +
                         '; expires=Thu, 01 Jan 1970 00:00:00 GMT1';
-                    console.log(document.cookie);
+                    game.state.start('CategoryMenu');
                 }
             }
         };

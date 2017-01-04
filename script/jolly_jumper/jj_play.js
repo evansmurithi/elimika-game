@@ -152,7 +152,7 @@ jjPlayState.prototype = {
 
     gameOver: function(){
         this.killAll();
-        this.state.start('LeaderBoard');
+        this.state.start('CategoryMenu');
     },
 
     playerDead: function(){
@@ -169,11 +169,11 @@ jjPlayState.prototype = {
         if (flag == true) {
             game.global.deadSound.onStop.add(function () {
                 this.killAll();
-                game.state.start('LeaderBoard');
+                game.state.start('CategoryMenu');
             }, this);
         } else {
             this.killAll();
-            game.state.start('LeaderBoard');
+            game.state.start('CategoryMenu');
         }
     },
 
